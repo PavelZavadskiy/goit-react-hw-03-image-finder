@@ -50,18 +50,6 @@ export class App extends Component {
     });
   };
 
-  handleResetPage = () => {
-    this.setState({ page: 1 });
-  };
-
-  handleSetTotalCount = totalCount => {
-    this.setState({ totalCount: totalCount });
-  };
-
-  handleSetError = error => {
-    this.setState({ error });
-  };
-
   handleSetItem = item => {
     this.setState({ item });
   };
@@ -84,9 +72,7 @@ export class App extends Component {
         })
         .catch(error => {
           this.setState({ status: Status.IDLE });
-          NotificationManager.error(error.message, 'Click me!', 3000, () => {
-            // alert('callback');
-          });
+          NotificationManager.error(error.message, 'Click me!', 3000, () => {});
         });
     }
 
