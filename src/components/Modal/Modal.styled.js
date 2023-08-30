@@ -17,14 +17,12 @@ export const ModalForm = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  heght: 80%
+  width: 1280;
   background: transparent;
 `;
 
 export const Image = styled.img`
   width: 100%;
-  heght: 100%
   background: transparent;
 `;
 

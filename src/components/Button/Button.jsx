@@ -1,7 +1,9 @@
+import { ButtonStyled } from './Button.styled';
+
 export const Button = props => (
   <>
-    <button type="button" onClick={props.onClick}>
+    <ButtonStyled type="button" onClick={props.onClick}>
       Load more
-    </button>
+    </ButtonStyled>
   </>
 );

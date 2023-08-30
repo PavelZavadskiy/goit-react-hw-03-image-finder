@@ -1,7 +1,8 @@
 import { Component } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { object, string } from 'yup';
+import { SearchForm, Button, Input, Wraper } from './Searchbar.styled';
 
 let schema = object({
   searchString: string().required(),
@@ -15,13 +16,14 @@ export class Searchbar extends Component {
   render() {
     return (
       <Formik initialValues={{ searchString: '' }} onSubmit={this.handleSubmit} validationSchema={schema}>
-        <Form>
-          <button type="submit">
-            <AiOutlineSearch />
-          </button>
-          <Field type="text" name="searchString" placeholder="Search images and photos" />
-          <ErrorMessage name="searchString">{() => <p>Enter search string</p>}</ErrorMessage>
-        </Form>
+        <SearchForm>
+          <Wraper>
+            <Button type="submit">
+              <AiOutlineSearch />
+            </Button>
+            <Input type="text" name="searchString" placeholder="Search images and photos" />
+          </Wraper>
+        </SearchForm>
       </Formik>
     );
   }
