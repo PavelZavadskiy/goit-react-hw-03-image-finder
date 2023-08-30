@@ -1,3 +1,4 @@
+import React from 'react';
 import { Component } from 'react';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
@@ -18,6 +19,11 @@ const Status = {
 };
 
 export class App extends Component {
+  constructor(props) {
+    super(props);
+    this.myApp = React.createRef();
+  }
+
   state = {
     searchString: '',
     items: [],
@@ -76,19 +82,22 @@ export class App extends Component {
         });
     }
 
-    const height = Math.max(
-      document.body.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.clientHeight,
-      document.documentElement.scrollHeight,
-      document.documentElement.offsetHeight
-    );
-    window.scrollTo(0, height);
+    // const height = Math.max(
+    //   document.body.scrollHeight,
+    //   document.body.offsetHeight,
+    //   document.documentElement.clientHeight,
+    //   document.documentElement.scrollHeight,
+    //   document.documentElement.offsetHeight
+    // );
+    // window.scrollTo(0, height);
+
+    window.scrollTo(0, this.myApp.current.scrollHeight);
   }
 
   render() {
     return (
       <div
+        ref={this.myApp}
         style={{
           padding: '0 0 32px',
         }}
